@@ -6,54 +6,12 @@ import { NoticiaService } from '../shared/services/noticia.service';
   templateUrl: './noticias.component.html',
   styleUrls: ['./noticias.component.scss'],
 })
+
+/**
+ * This is the page of /noticias, it should contain both
+ * the news-list and noticia-details components
+ */
 export class NoticiasComponent implements OnInit {
-  noticias: any = [];
-  cargando: Boolean = false;
-  link: string = 'https://google.com';
-  query: string = '';
-  lastSearch: string = '';
-
-  currentNews = {};
-
-  // se inicializa noticiasService como una propiedad de instancia de la clase
-  constructor(private noticiasService: NoticiaService) {}
-
-  search() {
-    this.cargando = true;
-    this.noticiasService.getNoticias().subscribe({
-      next: (response) => {
-        this.cargando = false;
-        this.noticias = response;
-      },
-      error: (e: any) => {
-        console.error(e);
-      },
-    });
-  }
-  searchWithQuery(): void {
-    this.cargando = true;
-    this.noticiasService.getNoticiasWithQuery(this.query).subscribe({
-      next: (response) => {
-        this.cargando = false;
-        this.noticias = response;
-        this.lastSearch = this.query;
-        this.query = '';
-      },
-      error: (e: any) => {
-        console.error(e);
-      },
-    });
-  }
-
-  selectNews(noticia: any) {
-    this.currentNews = noticia;
-  }
-
-  ngOnInit(): void {
-    this.search();
-  }
-
-  clearNews() {
-    this.currentNews = {};
-  }
+  constructor() {}
+  ngOnInit(): void {}
 }

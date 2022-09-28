@@ -1,29 +1,10 @@
 <h2>Listado de noticias</h2>
 
-<form (submit)="searchWithQuery()">
-  <input type="text" placeholder="Buscar..." [(ngModel)]="query" name="query" />
-  <button [disabled]="!query">Buscar</button>
-</form>
-
-<h2>Mostrando resultados de {{ lastSearch | myUpperCase }}</h2>
-
-<p *ngIf="cargando">Cargando...</p>
-
 <div class="panel">
   <div class="noticias-list">
-    <ul>
-      <li
-        [ngClass]="{ active: currentNews === noticia }"
-        *ngFor="let noticia of noticias"
-      >
-        <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
-      </li>
-    </ul>
+    <app-news-list></app-news-list>
   </div>
   <div class="noticias-details">
-    <app-noticia-details
-      [item]="currentNews"
-      (onClear)="clearNews()"
-    ></app-noticia-details>
+    <app-noticia-details></app-noticia-details>
   </div>
 </div>

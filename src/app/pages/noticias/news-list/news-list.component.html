@@ -1,0 +1,17 @@
+<form (submit)="searchWithQuery()">
+  <input type="text" placeholder="Buscar..." [(ngModel)]="query" name="query" />
+  <button [disabled]="!query">Buscar</button>
+</form>
+
+<h2>Mostrando resultados de {{ lastSearch | myUpperCase }}</h2>
+
+<p *ngIf="cargando">Cargando...</p>
+
+<ul>
+  <li
+    [ngClass]="{ active: currentNews === noticia }"
+    *ngFor="let noticia of noticias"
+  >
+    <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
+  </li>
+</ul>
