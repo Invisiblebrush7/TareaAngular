@@ -6,13 +6,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./noticia-details.component.scss'],
 })
 export class NoticiaDetailsComponent implements OnInit {
-  @Input('item') noticia: any = {}; // 'item' es un alias
-  @Input() test: any = '';
+  @Input() noticia: any = {}; // 'item' es un alias
 
-  @Output() onClear: EventEmitter<void> = new EventEmitter();
+  @Output() clearNewsEvent = new EventEmitter<void>();
 
   clearNewsDetails() {
-    this.onClear.emit();
+    console.log('Clear from noticias details component');
+    this.clearNewsEvent.emit();
   }
 
   constructor() {}

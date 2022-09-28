@@ -9,14 +9,21 @@ import { NoticiaService } from '../shared/services/noticia.service';
 
 /**
  * This is the page of /noticias, it should contain both
- * the news-list and noticia-details components
+ * the news-list and noticia-details components. Parent component
  */
 export class NoticiasComponent implements OnInit {
-  @Input() noticia: any = {};
-
-  clearNews() {
-    console.log('Hi, Im clearing the news');
-  }
   constructor() {}
   ngOnInit(): void {}
+
+  currentNews: any = {};
+
+  clearNews() {
+    this.currentNews = {};
+    console.log('Hi, Im clearing the news');
+  }
+
+  selectNews(noticia: any): void {
+    this.currentNews = noticia;
+    console.log('I received a news', noticia.title);
+  }
 }

@@ -1,10 +1,15 @@
 <h2>Listado de noticias</h2>
 
+<h3>Noticia current: {{ this.currentNews.title }}</h3>
+
 <div class="panel">
   <div class="noticias-list">
-    <app-news-list (onClear)="clearNews()"></app-news-list>
+    <app-news-list
+      [currentNewsFromList]="currentNews"
+      (clearNewsEvent)="({ title: 'hola desde noticias component' })"
+    ></app-news-list>
   </div>
   <div class="noticias-details">
-    <app-noticia-details></app-noticia-details>
+    <app-noticia-details (clearNewsEvent)="(clearNews)"></app-noticia-details>
   </div>
 </div>

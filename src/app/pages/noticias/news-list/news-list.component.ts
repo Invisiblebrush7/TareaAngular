@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 
 @Component({
@@ -12,10 +12,9 @@ export class NewsListComponent implements OnInit {
   query: string = '';
   lastSearch: string = '';
 
-  currentNews = {};
+  @Input() currentNewsFromList = {};
 
   @Output() onSendNews: EventEmitter<any> = new EventEmitter();
-  @Output() onClear: EventEmitter<void> = new EventEmitter();
 
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
@@ -58,7 +57,8 @@ export class NewsListComponent implements OnInit {
    * Assign user-selected news to variable of currentNews
    */
   selectNews(noticia: any) {
-    this.currentNews = noticia;
+    console.log('Clicked on news', noticia.title);
+    this.currentNewsFromList = noticia;
     this.onSendNews.emit(noticia);
   }
   /**
@@ -66,8 +66,7 @@ export class NewsListComponent implements OnInit {
    * This is called when we received the event from sibling
    */
   clearNews() {
-    this.currentNews = {};
-    this.onClear.emit();
+    this.currentNewsFromList = {};
   }
 
   ngOnInit(): void {
