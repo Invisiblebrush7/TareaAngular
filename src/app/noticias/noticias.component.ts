@@ -13,6 +13,8 @@ export class NoticiasComponent implements OnInit {
   query: string = '';
   lastSearch: string = '';
 
+  currentNews = {};
+
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
 
@@ -43,7 +45,15 @@ export class NoticiasComponent implements OnInit {
     });
   }
 
+  selectNews(noticia: any) {
+    this.currentNews = noticia;
+  }
+
   ngOnInit(): void {
     this.search();
+  }
+
+  clearNews() {
+    this.currentNews = {};
   }
 }

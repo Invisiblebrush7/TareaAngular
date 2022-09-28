@@ -8,10 +8,22 @@
 <h2>Mostrando resultados de {{ lastSearch | myUpperCase }}</h2>
 
 <p *ngIf="cargando">Cargando...</p>
-<ul>
-  <li *ngFor="let noticia of noticias">
-    <a [href]="noticia.url">{{ noticia.title }}</a>
-  </li>
-</ul>
 
-<app-noticia-details></app-noticia-details>
+<div class="panel">
+  <div class="noticias-list">
+    <ul>
+      <li
+        [ngClass]="{ active: currentNews === noticia }"
+        *ngFor="let noticia of noticias"
+      >
+        <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="noticias-details">
+    <app-noticia-details
+      [item]="currentNews"
+      (onClear)="clearNews()"
+    ></app-noticia-details>
+  </div>
+</div>
