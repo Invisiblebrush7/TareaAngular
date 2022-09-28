@@ -2,7 +2,7 @@
 
 <div class="panel">
   <div class="noticias-list">
-    <app-news-list></app-news-list>
+    <app-news-list (onClear)="clearNews()"></app-news-list>
   </div>
   <div class="noticias-details">
     <app-noticia-details></app-noticia-details>

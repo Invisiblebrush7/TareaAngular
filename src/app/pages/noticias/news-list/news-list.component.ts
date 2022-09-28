@@ -15,6 +15,7 @@ export class NewsListComponent implements OnInit {
   currentNews = {};
 
   @Output() onSendNews: EventEmitter<any> = new EventEmitter();
+  @Output() onClear: EventEmitter<void> = new EventEmitter();
 
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
@@ -66,6 +67,7 @@ export class NewsListComponent implements OnInit {
    */
   clearNews() {
     this.currentNews = {};
+    this.onClear.emit();
   }
 
   ngOnInit(): void {

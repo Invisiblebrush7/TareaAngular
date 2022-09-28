@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NoticiaService } from '../shared/services/noticia.service';
 
 @Component({
@@ -12,6 +12,11 @@ import { NoticiaService } from '../shared/services/noticia.service';
  * the news-list and noticia-details components
  */
 export class NoticiasComponent implements OnInit {
+  @Input() noticia: any = {};
+
+  clearNews() {
+    console.log('Hi, Im clearing the news');
+  }
   constructor() {}
   ngOnInit(): void {}
 }
