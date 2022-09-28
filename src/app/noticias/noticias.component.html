@@ -1,0 +1,17 @@
+<h2>Listado de noticias</h2>
+
+<form (submit)="searchWithQuery()">
+  <input type="text" placeholder="Buscar..." [(ngModel)]="query" name="query" />
+  <button [disabled]="!query">Buscar</button>
+</form>
+
+<h2>Mostrando resultados de {{ lastSearch | myUpperCase }}</h2>
+
+<p *ngIf="cargando">Cargando...</p>
+<ul>
+  <li *ngFor="let noticia of noticias">
+    <a [href]="noticia.url">{{ noticia.title }}</a>
+  </li>
+</ul>
+
+<app-noticia-details></app-noticia-details>

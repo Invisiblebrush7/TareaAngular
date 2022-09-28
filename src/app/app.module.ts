@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { MyUpperCasePipe } from './shared/pipes/my-upper-case.pipe';
+import { NoticiaDetailsComponent } from './pages/noticias/noticia-details/noticia-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NoticiasComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    MyUpperCasePipe,
+    NoticiaDetailsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
