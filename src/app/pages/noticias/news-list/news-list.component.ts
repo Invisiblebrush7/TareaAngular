@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class NewsListComponent implements OnInit {
   lastSearch: string = '';
 
   currentNews = {};
+
+  @Output() onSendNews: EventEmitter<any> = new EventEmitter();
 
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
@@ -56,6 +58,7 @@ export class NewsListComponent implements OnInit {
    */
   selectNews(noticia: any) {
     this.currentNews = noticia;
+    this.onSendNews.emit(noticia);
   }
   /**
    * Clear the currentNews
