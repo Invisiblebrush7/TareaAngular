@@ -1,11 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-noticia-details',
   templateUrl: './noticia-details.component.html',
   styleUrls: ['./noticia-details.component.scss'],
 })
-export class NoticiaDetailsComponent implements OnInit {
+export class NoticiaDetailsComponent implements OnInit, OnChanges {
   @Input() noticia: any = {}; // 'item' es un alias
 
   @Output() clearNewsEvent = new EventEmitter<void>();
@@ -16,6 +24,9 @@ export class NoticiaDetailsComponent implements OnInit {
   }
 
   constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Changes ', changes);
+  }
 
   ngOnInit(): void {}
 }

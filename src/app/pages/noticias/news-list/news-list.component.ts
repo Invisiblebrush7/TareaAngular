@@ -14,7 +14,7 @@ export class NewsListComponent implements OnInit {
 
   @Input() currentNewsFromList = {};
 
-  @Output() onSendNews: EventEmitter<any> = new EventEmitter();
+  @Output() onSendNewsEvent: EventEmitter<any> = new EventEmitter();
 
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
@@ -57,9 +57,9 @@ export class NewsListComponent implements OnInit {
    * Assign user-selected news to variable of currentNews
    */
   selectNews(noticia: any) {
-    console.log('Clicked on news', noticia.title);
+    console.log('Clicked on', noticia.title);
     this.currentNewsFromList = noticia;
-    this.onSendNews.emit(noticia);
+    this.onSendNewsEvent.emit(noticia);
   }
   /**
    * Clear the currentNews

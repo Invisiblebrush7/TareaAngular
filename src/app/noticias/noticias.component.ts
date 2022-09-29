@@ -17,9 +17,9 @@ export class NoticiasComponent implements OnInit {
 
   currentNews: any = {};
 
-  clearNews() {
-    this.currentNews = {};
+  clearNewsDetailsFromNoticias() {
     console.log('Hi, Im clearing the news');
+    this.currentNews = {};
   }
 
   selectNews(noticia: any): void {

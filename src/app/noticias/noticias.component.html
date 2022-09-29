@@ -5,11 +5,12 @@
 <div class="panel">
   <div class="noticias-list">
     <app-news-list
-      [currentNewsFromList]="currentNews"
-      (clearNewsEvent)="({ title: 'hola desde noticias component' })"
+      (onSendNewsEvent)="selectNews(this.currentNews)"
+      (clearNewsDetails)="(clearNewsDetailsFromNoticias)"
+      [currentNewsFromList]="this.currentNews"
     ></app-news-list>
   </div>
   <div class="noticias-details">
-    <app-noticia-details (clearNewsEvent)="(clearNews)"></app-noticia-details>
+    <app-noticia-details></app-noticia-details>
   </div>
 </div>
