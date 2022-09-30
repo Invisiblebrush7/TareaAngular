@@ -1,16 +1,16 @@
 <h2>Listado de noticias</h2>
 
-<h3>Noticia current: {{ this.currentNews.title }}</h3>
-
 <div class="panel">
   <div class="noticias-list">
     <app-news-list
-      (onSendNewsEvent)="selectNews(this.currentNews)"
-      (clearNewsDetails)="(clearNewsDetailsFromNoticias)"
-      [currentNewsFromList]="this.currentNews"
+      (sendNewsEvent)="selectNews($event)"
+      [currentNews]="currentNews"
     ></app-news-list>
   </div>
   <div class="noticias-details">
-    <app-noticia-details></app-noticia-details>
+    <app-noticia-details
+      [noticia]="currentNews"
+      (clearNewsEvent)="clearNewsDetails()"
+    ></app-noticia-details>
   </div>
 </div>

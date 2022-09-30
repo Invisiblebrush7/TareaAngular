@@ -12,9 +12,9 @@ export class NewsListComponent implements OnInit {
   query: string = '';
   lastSearch: string = '';
 
-  @Input() currentNewsFromList: any;
+  @Input() currentNews: any;
 
-  @Output() onSendNewsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() sendNewsEvent: EventEmitter<any> = new EventEmitter();
 
   // se inicializa noticiasService como una propiedad de instancia de la clase
   constructor(private noticiasService: NoticiaService) {}
@@ -57,16 +57,15 @@ export class NewsListComponent implements OnInit {
    * Assign user-selected news to variable of currentNews
    */
   selectNews(noticia: any) {
-    console.log('Clicked on', noticia.title);
-    this.currentNewsFromList = noticia;
-    this.onSendNewsEvent.emit(noticia);
+    this.currentNews = noticia;
+    this.sendNewsEvent.emit(noticia);
   }
   /**
    * Clear the currentNews
    * This is called when we received the event from sibling
    */
   clearNews() {
-    this.currentNewsFromList = {};
+    this.currentNews = {};
   }
 
   ngOnInit(): void {

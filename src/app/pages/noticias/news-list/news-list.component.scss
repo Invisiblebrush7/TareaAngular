@@ -4,15 +4,6 @@ a {
   text-decoration: underline;
 }
 
-.panel {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-
-  div {
-    width: 50%;
-  }
-  li.active {
-    background-color: lightblue;
-  }
+li.active {
+  background-color: lightblue;
 }

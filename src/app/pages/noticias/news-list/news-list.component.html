@@ -9,8 +9,8 @@
 
 <ul>
   <li
-    [ngClass]="{ active: currentNewsFromList === noticia }"
     *ngFor="let noticia of noticias"
+    [ngClass]="{ active: currentNews === noticia }"
   >
     <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
   </li>
