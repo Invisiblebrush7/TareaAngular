@@ -12,7 +12,7 @@ export class NewsListComponent implements OnInit {
   query: string = '';
   lastSearch: string = '';
 
-  @Input() currentNewsFromList = {};
+  @Input() currentNewsFromList: any;
 
   @Output() onSendNewsEvent: EventEmitter<any> = new EventEmitter();
 
