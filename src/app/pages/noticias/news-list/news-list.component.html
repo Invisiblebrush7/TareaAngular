@@ -13,5 +13,9 @@
     [ngClass]="{ active: currentNews === noticia }"
   >
     <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
+    <br />
+    <a (click)="selectNews(noticia)" routerLink="noticias/"
+      >Ir a :{{ noticia.title }}</a
+    >
   </li>
 </ul>

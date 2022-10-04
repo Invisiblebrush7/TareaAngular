@@ -3,11 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
+import { Noticia } from 'src/app/shared/interfaces/noticia';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoticiaService {
+  private noticia: Noticia = {
+    title: '',
+    description: '',
+    url: '',
+    urlToImage: '',
+  };
+
   constructor(private http: HttpClient) {}
 
   getNoticias(): Observable<Object> {
@@ -16,5 +24,25 @@ export class NoticiaService {
 
   getNoticiasWithQuery(q: string): Observable<Object> {
     return this.http.get(environment.apiUrl + 'search/' + '?q=' + q);
+  }
+
+  setCurrentNoticia(noticia: Noticia) {
+    this.noticia = noticia;
+    localStorage.setItem('noticia', JSON.stringify(this.noticia));
+  }
+
+  get currentNoticia(): Noticia {
+    if (!this.noticia.title) {
+      const newsDefault: Noticia = {
+        title: '',
+        description: '',
+        url: '',
+        urlToImage: '',
+      };
+      this.noticia = JSON.parse(
+        localStorage.getItem('noticia') || JSON.stringify(newsDefault)
+      );
+    }
+    return this.noticia;
   }
 }

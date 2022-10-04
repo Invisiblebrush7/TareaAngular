@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Noticia } from 'src/app/shared/interfaces/noticia';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 
 @Component({
@@ -56,8 +57,9 @@ export class NewsListComponent implements OnInit {
   /**
    * Assign user-selected news to variable of currentNews
    */
-  selectNews(noticia: any) {
+  selectNews(noticia: Noticia) {
     this.currentNews = noticia;
+    this.noticiasService.setCurrentNoticia(noticia);
     this.sendNewsEvent.emit(noticia);
   }
   /**
