@@ -13,6 +13,8 @@ import { MyUpperCasePipe } from './shared/pipes/my-upper-case.pipe';
 import { NoticiaDetailsComponent } from './pages/noticias/noticia-details/noticia-details.component';
 import { NewsListComponent } from './pages/noticias/news-list/news-list.component';
 import { NoticiasDetailsPageComponent } from './pages/noticias/noticias-details-page/noticias-details-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,14 @@ import { NoticiasDetailsPageComponent } from './pages/noticias/noticias-details-
     NewsListComponent,
     NoticiasDetailsPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

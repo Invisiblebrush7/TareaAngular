@@ -1,6 +1,6 @@
 <form (submit)="searchWithQuery()">
   <input type="text" placeholder="Buscar..." [(ngModel)]="query" name="query" />
-  <button [disabled]="!query">Buscar</button>
+  <button mat-stroked-button color="primary" [disabled]="!query">Buscar</button>
 </form>
 
 <h2>Mostrando resultados de {{ lastSearch | myUpperCase }}</h2>

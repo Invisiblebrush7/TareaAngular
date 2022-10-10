@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #083d77;
+  color: #fff;
+  padding: 1.5rem 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+
+  h3 {
+    letter-spacing: 0.2rem;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

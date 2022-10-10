@@ -4,6 +4,10 @@ a {
   text-decoration: underline;
 }
 
+li {
+  margin: 1rem;
+}
+
 li.active {
   background-color: lightblue;
 }

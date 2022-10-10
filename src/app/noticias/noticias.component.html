@@ -1,16 +1,18 @@
-<h2>Listado de noticias</h2>
+<div class="container">
+  <h2>Listado de noticias</h2>
 
-<div class="panel">
-  <div class="noticias-list">
-    <app-news-list
-      (sendNewsEvent)="selectNews($event)"
-      [currentNews]="currentNews"
-    ></app-news-list>
-  </div>
-  <div class="noticias-details">
-    <app-noticia-details
-      [noticia]="currentNews"
-      (clearNewsEvent)="clearNewsDetails()"
-    ></app-noticia-details>
+  <div class="panel">
+    <div class="noticias-list">
+      <app-news-list
+        (sendNewsEvent)="selectNews($event)"
+        [currentNews]="currentNews"
+      ></app-news-list>
+    </div>
+    <div class="noticias-details">
+      <app-noticia-details
+        [noticia]="currentNews"
+        (clearNewsEvent)="clearNewsDetails()"
+      ></app-noticia-details>
+    </div>
   </div>
 </div>
