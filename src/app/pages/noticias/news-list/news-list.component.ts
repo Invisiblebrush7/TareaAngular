@@ -70,6 +70,10 @@ export class NewsListComponent implements OnInit {
     this.currentNews = {};
   }
 
+  updateFav(fav: Boolean): void {
+    this.noticiasService.updateFavs(fav);
+  }
+
   ngOnInit(): void {
     /**
      * I use this method because I want to show top headlines when the user

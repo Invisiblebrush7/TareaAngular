@@ -12,6 +12,13 @@
     *ngFor="let noticia of noticias"
     [ngClass]="{ active: currentNews === noticia }"
   >
+    <input
+      (click)="updateFav(!noticia.favorito)"
+      [(ngModel)]="noticia.favorito"
+      type="checkbox"
+      name="fav"
+      id="fav"
+    />
     <a (click)="selectNews(noticia)">{{ noticia.title }}</a>
     <br />
     <a (click)="selectNews(noticia)" routerLink="noticias/"

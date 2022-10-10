@@ -3,4 +3,5 @@ export interface Noticia {
   description: string;
   url: string;
   urlToImage?: string;
+  fav?: boolean;
 }

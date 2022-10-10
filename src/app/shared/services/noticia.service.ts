@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Noticia } from 'src/app/shared/interfaces/noticia';
@@ -15,6 +15,9 @@ export class NoticiaService {
     url: '',
     urlToImage: '',
   };
+  //  Puede ser privada porque no necesitas leer este atributo desde ningun componente
+  private favsCount: number = 0;
+  favsObservable: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor(private http: HttpClient) {}
 
@@ -44,5 +47,10 @@ export class NoticiaService {
       );
     }
     return this.noticia;
+  }
+
+  updateFavs(fav: Boolean) {
+    this.favsCount = fav ? this.favsCount + 1 : this.favsCount - 1;
+    this.favsObservable.next(this.favsCount);
   }
 }
